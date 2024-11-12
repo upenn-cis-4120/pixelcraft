@@ -12,6 +12,7 @@ import { ReactComponent as AlternativeInvestmentsIcon } from './icons/alternativ
 import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
 import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
 import { ReactComponent as SearchIcon } from './icons/searchIcon.svg';
+import { Link } from 'react-router-dom';
 
 function HomeScreen() {
     return (
@@ -80,9 +81,15 @@ function HomeScreen() {
 
             {/* Tab Menu */}
             <div className="tab-menu">
-                <HomeIcon className="home-icon"/>
-                <SearchIcon className="search-icon"/>
-                <ProfileIcon className="profile-icon"/>
+                <Link to="/" className="home-icon">
+                    <HomeIcon />
+                </Link>
+                <Link to="/search" className="search-icon">
+                    <SearchIcon />
+                </Link>
+                <Link to="/profile" className="profile-icon">
+                    <ProfileIcon />
+                </Link>
             </div>
         </div>
     );
