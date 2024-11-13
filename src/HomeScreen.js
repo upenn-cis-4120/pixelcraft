@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HomeScreen.css';
 import { ReactComponent as MenuIcon } from './icons/MenuIcon.svg';
 import { ReactComponent as MicrophoneIcon } from './icons/MicrophoneIcon.svg';
@@ -11,10 +11,32 @@ import { ReactComponent as RealEstateIcon } from './icons/realEstateIcon.svg';
 import { ReactComponent as AlternativeInvestmentsIcon } from './icons/alternativeInvestmentsIcon.svg';
 import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
 import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
-import { ReactComponent as SearchIcon } from './icons/searchIcon.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function HomeScreen() {
+    const [isMicOverlayVisible, setMicOverlayVisible] = useState(false);
+    const [userInput, setUserInput] = useState(''); // State for input text
+    const location = useLocation(); // Get current route
+
+    const handleMicClick = () => {
+        setMicOverlayVisible(true);
+    };
+
+    const handleCloseOverlay = () => {
+        setMicOverlayVisible(false);
+    };
+
+    const handleInputChange = (e) => {
+        setUserInput(e.target.value);
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            console.log('User Input:', userInput); // Optional: Log or process the input
+            setUserInput(''); // Clear the input field
+        }
+    };
+
     return (
         <div className="home-screen">
             {/* Header Section */}
@@ -25,7 +47,10 @@ function HomeScreen() {
 
                 <div className="home-text">Home</div>
 
-                <div className="microphone-icon-wrapper">
+                <div
+                    className="microphone-icon-wrapper"
+                    onClick={handleMicClick}
+                >
                     <MicrophoneIcon className="microphone-icon" />
                 </div>
             </div>
@@ -53,8 +78,8 @@ function HomeScreen() {
                 </div>
             </div>
 
-  {/* Six Rectangular Boxes Below the Card with Icons and Text */}
-  <div className="rectangle left-rectangle top-row-1">
+            {/* Six Rectangular Boxes Below the Card with Icons and Text */}
+            <div className="rectangle left-rectangle top-row-1">
                 <CryptoIcon className="box-icon" />
                 <p className="box-text">Crypto</p>
             </div>
@@ -82,15 +107,50 @@ function HomeScreen() {
             {/* Tab Menu */}
             <div className="tab-menu">
                 <Link to="/" className="home-icon">
-                    <HomeIcon />
-                </Link>
-                <Link to="/search" className="search-icon">
-                    <SearchIcon />
+                    <HomeIcon
+                        style={{
+                            color: location.pathname === '/' ? '#6CB8D6' : '#A5A4A9',
+                        }}
+                    />
                 </Link>
                 <Link to="/profile" className="profile-icon">
-                    <ProfileIcon />
+                    <ProfileIcon
+                        style={{
+                            color: location.pathname === '/profile' ? '#6CB8D6' : '#A5A4A9',
+                        }}
+                    />
                 </Link>
             </div>
+
+
+            {/* Microphone Overlay */}
+            {isMicOverlayVisible && (
+                <div className="mic-overlay">
+                    <div className="mic-overlay-header">
+                        <button
+                            className="mic-overlay-close"
+                            onClick={handleCloseOverlay}
+                        >
+                            ×
+                        </button>
+                    </div>
+                    <div className="mic-content">
+                        <div className="mic-circle">
+                            <MicrophoneIcon className="mic-icon" />
+                        </div>
+                        <h2 className="mic-header">AI Powered Chat</h2>
+                        <p className="mic-subheader">Ask Me Anything...</p>
+                        <input
+                            type="text"
+                            placeholder="Type Here..."
+                            value={userInput}
+                            onChange={handleInputChange}
+                            onKeyPress={handleKeyPress}
+                            className="mic-input"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

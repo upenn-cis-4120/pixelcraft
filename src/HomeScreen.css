@@ -558,14 +558,34 @@
     margin-bottom: -5px;
 }
 
-/* Home icon */
-.home-icon {
-    position: absolute;
+/* .tab-menu {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 40px;
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
+} */
+
+.home-icon,
+.profile-icon {
     width: 18px;
     height: 20px;
-    left: 42px;
-    top: 15px; /* Adjust positioning within the tab-menu */
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease; /* Smooth color change */
 }
+
+.home-icon svg,
+.profile-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
 
 /* Search icon */
 .search-icon {
@@ -577,14 +597,7 @@
     top: 15px; /* Adjust positioning within the tab-menu */
 }
 
-/* Profile icon */
-.profile-icon {
-    position: absolute;
-    width: 18px;
-    height: 20px;
-    left: 354px;
-    top: 15px; /* Adjust positioning within the tab-menu */
-}
+
 
 
 /* Profile Page */
@@ -684,4 +697,151 @@
 
 .privacy-policy-rectangle {
     top: 632px;
+}
+
+/* Microphone Overlay */
+.mic-overlay {
+    position: absolute;
+    left: 0.24%;
+    right: -0.24%;
+    top: -0.11%;
+    bottom: 0.11%;
+    background: rgba(220, 242, 251, 0.9);
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* Overlay Close Button */
+.mic-overlay-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.mic-overlay-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #3a697b;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Microphone Overlay Content */
+.mic-content {
+    text-align: center;
+    color: #3a697b;
+}
+
+/* Circle for Microphone Icon */
+.mic-circle {
+    width: 120px;
+    height: 120px;
+    margin-left: 90px;
+    border-radius: 60px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Microphone Icon in Circle */
+.mic-icon {
+    width: 48px;
+    height: 48px;
+}
+
+/* Header Text */
+.mic-header {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* Subheader Text */
+.mic-subheader {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Input Field */
+.mic-input {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: #ffffff;
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 14px;
+}
+
+/* Mic Circle Listening Animation */
+.mic-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(108, 184, 214, 0.2); /* Outer glowing effect */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: mic-pulse 2s infinite;
+}
+
+.mic-icon {
+    width: 40px;
+    height: 40px;
+    fill: #6CB8D6;
+    z-index: 2;
+}
+
+/* Pulse Effect */
+@keyframes mic-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(108, 184, 214, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px 20px rgba(108, 184, 214, 0);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(108, 184, 214, 0);
+        transform: scale(1);
+    }
+}
+
+/* Inner Level Animation */
+.mic-level {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #6CB8D6;
+    opacity: 0.8;
+    animation: level-up-down 1.2s infinite;
+}
+
+@keyframes level-up-down {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
 }
