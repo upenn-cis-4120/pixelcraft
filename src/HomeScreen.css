@@ -845,3 +845,11 @@
         opacity: 0.6;
     }
 }
+
+.equity-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit;        /* Inherit color from parent */
+    display: flex;         /* Aligns icon and text properly */
+    flex-direction: column;
+    align-items: center;
+}

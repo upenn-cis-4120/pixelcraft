@@ -88,8 +88,10 @@ function HomeScreen() {
                 <p className="box-text">Commodities</p>
             </div>
             <div className="rectangle left-rectangle top-row-2">
+                <Link to="/equity" className="equity-link">
                 <EquityIcon className="box-icon" />
                 <p className="box-text">Equity</p>
+                </Link>
             </div>
             <div className="rectangle right-rectangle top-row-2">
                 <DebtIcon className="box-icon" />

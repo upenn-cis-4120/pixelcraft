@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
+import EquityScreen from './EquityScreen';
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
                 <Route path="/profile" element={<ProfileScreen />} />
+                <Route path="/equity" element={<EquityScreen />} />
             </Routes>
         </Router>
     );
