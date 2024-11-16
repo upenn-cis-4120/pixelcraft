@@ -5,10 +5,10 @@ import { ReactComponent as MenuThreeDotsIcon } from './icons/menuThreeDots.svg';
 import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
 import { ReactComponent as GraphLine } from './icons/graphLine.svg';
 import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
-import { ReactComponent as LogoIcon } from './icons/equityIcon.svg'; // Assuming logo icon is provided
+import { ReactComponent as LogoIcon } from './icons/alternativeInvestmentsIcon.svg'; // Assuming logo icon is provided
 import { Link, useLocation } from 'react-router-dom';
 
-function EquityScreen() {
+function AlternativeScreen() {
     const location = useLocation(); // Get current route
 
     return (
@@ -18,7 +18,7 @@ function EquityScreen() {
                 <Link to="/" className="back-arrow-icon">
                     <BackArrowIcon />
                 </Link>
-                <div className="profile-text">Equity</div>
+                <div className="profile-text">Alternative Investments</div>
                 <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
@@ -26,7 +26,7 @@ function EquityScreen() {
             <div className="equity-rectangle">
                 {/* Logo */}
                 <div className="equity-logo">
-                    <LogoIcon />
+                    <LogoIcon color="#FFFFFF"/>
                 </div>
                 {/* Net Value Text */}
                 <div className="net-value-label">Net Value:</div>
@@ -106,7 +106,7 @@ function EquityScreen() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="broker-integrations-section">
                 {/* Broker Integrations Header */}
                 <h2 className="broker-integrations-title">Broker Integrations</h2>
@@ -116,21 +116,45 @@ function EquityScreen() {
                 <div className="minus-circle">-</div>
 
                 {/* Broker Integration Cards */}
-                <div className="broker-card robinhood-card">
-                    <img src={require('./icons/robinhood.png')} alt="Robinhood Logo" className="broker-icon" />
-                    <span className="broker-name">Robinhood</span>
-                    <span className="broker-value">$750,000</span>
-                </div>
-                <div className="broker-card charles-schwab-card">
+                <div className="broker-card charles-schwab-card2">
                     <img src={require('./icons/charles.webp')} alt="Charles Schwab Logo" className="broker-icon" />
                     <span className="broker-name">Charles Schwab</span>
                     <span className="broker-value">$594,000</span>
                 </div>
-                <div className="broker-card fidelity-card">
-                    <img src={require('./icons/fidelity.webp')} alt="Fidelity Logo" className="broker-icon" />
-                    <span className="broker-name">Fidelity</span>
-                    <span className="broker-value">$221</span>
-                </div>
+            </div>
+
+
+            <div className="portfolio-section">
+                <h2 className="portfolio-title">Portfolio</h2>
+
+                {/* Plus and Minus Circles */}
+                <div className="plus-circle-2">+</div>
+                <div className="minus-circle-2">-</div>
+
+                {/* Portfolio Table */}
+                <table className="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th className="portfolio-header">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="portfolio-row">POWER FINANCE CORPORATION LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td className="portfolio-row">REC LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td className="portfolio-row">POWER FINANCE CORPORATION LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td className="portfolio-row">LIC HOUSING FINANCE LIMITED</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
             </div>
 
 
@@ -157,4 +181,4 @@ function EquityScreen() {
     );
 }
 
-export default EquityScreen;
+export default AlternativeScreen;

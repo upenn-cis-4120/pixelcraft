@@ -5,10 +5,10 @@ import { ReactComponent as MenuThreeDotsIcon } from './icons/menuThreeDots.svg';
 import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
 import { ReactComponent as GraphLine } from './icons/graphLine.svg';
 import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
-import { ReactComponent as LogoIcon } from './icons/equityIcon.svg'; // Assuming logo icon is provided
+import { ReactComponent as LogoIcon } from './icons/commoditiesIcon.svg'; // Assuming logo icon is provided
 import { Link, useLocation } from 'react-router-dom';
 
-function EquityScreen() {
+function CommoditiesScreen() {
     const location = useLocation(); // Get current route
 
     return (
@@ -18,7 +18,7 @@ function EquityScreen() {
                 <Link to="/" className="back-arrow-icon">
                     <BackArrowIcon />
                 </Link>
-                <div className="profile-text">Equity</div>
+                <div className="profile-text">Commodities</div>
                 <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
@@ -26,7 +26,7 @@ function EquityScreen() {
             <div className="equity-rectangle">
                 {/* Logo */}
                 <div className="equity-logo">
-                    <LogoIcon />
+                    <LogoIcon color="#FFFFFF"/>
                 </div>
                 {/* Net Value Text */}
                 <div className="net-value-label">Net Value:</div>
@@ -106,7 +106,7 @@ function EquityScreen() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="broker-integrations-section">
                 {/* Broker Integrations Header */}
                 <h2 className="broker-integrations-title">Broker Integrations</h2>
@@ -157,4 +157,4 @@ function EquityScreen() {
     );
 }
 
-export default EquityScreen;
+export default CommoditiesScreen;

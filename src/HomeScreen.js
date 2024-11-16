@@ -40,7 +40,7 @@ function HomeScreen() {
     return (
         <div className="home-screen">
             {/* Header Section */}
-            <div className="header">
+            <div className="homeheader">
                 <div className="menu-icon">
                     <MenuIcon />
                 </div>
@@ -80,30 +80,40 @@ function HomeScreen() {
 
             {/* Six Rectangular Boxes Below the Card with Icons and Text */}
             <div className="rectangle left-rectangle top-row-1">
-                <CryptoIcon className="box-icon" />
+                <Link to="/crypto" className="equity-link">
+                <CryptoIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Crypto</p>
+                </Link>
             </div>
             <div className="rectangle right-rectangle top-row-1">
-                <CommoditiesIcon className="box-icon" />
+            <Link to="/commodities" className="equity-link">
+                <CommoditiesIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Commodities</p>
+                </Link>
             </div>
             <div className="rectangle left-rectangle top-row-2">
                 <Link to="/equity" className="equity-link">
-                <EquityIcon className="box-icon" />
+                <EquityIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Equity</p>
                 </Link>
             </div>
             <div className="rectangle right-rectangle top-row-2">
-                <DebtIcon className="box-icon" />
+                <Link to="/debt" className="equity-link">
+                <DebtIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Debt</p>
+                </Link>
             </div>
             <div className="rectangle left-rectangle top-row-3">
-                <RealEstateIcon className="box-icon" />
+            <Link to="/realestate" className="equity-link">
+                <RealEstateIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Real Estate</p>
+                </Link>
             </div>
             <div className="rectangle right-rectangle top-row-3">
-                <AlternativeInvestmentsIcon className="box-icon" />
+            <Link to="/alternative" className="equity-link">
+                <AlternativeInvestmentsIcon color="#C2C2C2" className="box-icon" />
                 <p className="box-text">Alternative Investments</p>
+                </Link>
             </div>
 
             {/* Tab Menu */}
