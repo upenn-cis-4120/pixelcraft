@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './HomeScreen.css';
 import { ReactComponent as BackArrowIcon } from './icons/backArrowIcon.svg';
 import { ReactComponent as MenuThreeDotsIcon } from './icons/menuThreeDots.svg';
@@ -10,6 +10,42 @@ import { Link, useLocation } from 'react-router-dom';
 
 function CryptoScreen() {
     const location = useLocation(); // Get current route
+
+    const screenKey = 'cryptoBrokerIntegrations';
+
+    const [brokerIntegrations, setBrokerIntegrations] = useState(() => {
+        const savedBrokers = localStorage.getItem(screenKey);
+        return savedBrokers ? JSON.parse(savedBrokers) : [];
+    });
+
+    const [showPopup, setShowPopup] = useState(false); // Manage popup visibility
+    const allBrokers = [
+        { name: 'Robinhood', value: '$750,000', icon: './icons/robinhood.png' },
+        { name: 'Charles Schwab', value: '$594,000', icon: './icons/charles.webp' },
+        { name: 'Fidelity', value: '$221', icon: './icons/fidelity.webp' },
+    ];
+
+    // Dynamically filter available brokers based on already added brokers
+    const availableBrokers = allBrokers.filter(
+        (broker) => !brokerIntegrations.some((b) => b.name === broker.name)
+    );
+
+    useEffect(() => {
+        localStorage.setItem(screenKey, JSON.stringify(brokerIntegrations));
+    }, [brokerIntegrations, screenKey]);
+
+    const handleRemoveBroker = () => {
+        if (brokerIntegrations.length > 0) {
+            const updatedBrokers = [...brokerIntegrations];
+            updatedBrokers.pop(); // Remove the last broker
+            setBrokerIntegrations(updatedBrokers);
+        }
+    };
+
+    const handleAddBroker = (broker) => {
+        setBrokerIntegrations((prev) => [...prev, broker]); // Add selected broker
+        setShowPopup(false); // Close popup
+    };
 
     return (
         <div className="home-screen">
@@ -107,33 +143,56 @@ function CryptoScreen() {
                 </div>
             </div>
 
+            {/* Broker Integrations Header */}
+            <p className="broker-integrations-title">Broker Integrations</p>
+
+            {/* Plus and Minus Circles */}
+            <div className="plus-circle" onClick={() => setShowPopup(true)}>+</div>
+            <div className="minus-circle" onClick={handleRemoveBroker}>-</div>
+
+
             <div className="broker-integrations-section">
-                {/* Broker Integrations Header */}
-                <h2 className="broker-integrations-title">Broker Integrations</h2>
-
-                {/* Plus and Minus Circles */}
-                <div className="plus-circle">+</div>
-                <div className="minus-circle">-</div>
-
-                {/* Broker Integration Cards */}
-                <div className="broker-card robinhood-card">
-                    <img src={require('./icons/robinhood.png')} alt="Robinhood Logo" className="broker-icon" />
-                    <span className="broker-name">Robinhood</span>
-                    <span className="broker-value">$750,000</span>
+            {/* Broker Integration Cards */}
+            {brokerIntegrations.map((broker, index) => (
+                <div className="broker-card" key={index}>
+                    <img src={require(`${broker.icon}`)} alt={`${broker.name} Logo`} className="broker-icon" />
+                    <span className="broker-name">{broker.name}</span>
+                    <span className="broker-value">{broker.value}</span>
                 </div>
-                <div className="broker-card charles-schwab-card">
-                    <img src={require('./icons/charles.webp')} alt="Charles Schwab Logo" className="broker-icon" />
-                    <span className="broker-name">Charles Schwab</span>
-                    <span className="broker-value">$594,000</span>
-                </div>
-                <div className="broker-card fidelity-card">
-                    <img src={require('./icons/fidelity.webp')} alt="Fidelity Logo" className="broker-icon" />
-                    <span className="broker-name">Fidelity</span>
-                    <span className="broker-value">$221</span>
-                </div>
-            </div>
+            ))}
 
+            {/* Popup for Adding Broker */}
+            {showPopup && (
+                <div className="popup-overlay">
+                    <div className="popup">
+                        <h2 className="popup-title">Add Broker Integration</h2>
+                        <div className="popup-options">
+                            {availableBrokers.map((broker, index) => (
+                                <div
+                                    key={index}
+                                    className="popup-option"
+                                    onClick={() => handleAddBroker(broker)}
+                                >
+                                    <img
+                                        src={require(`${broker.icon}`)}
+                                        alt={`${broker.name} Logo`}
+                                        className="popup-icon"
+                                    />
+                                    <span className="popup-broker-name">{broker.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <button
+                            className="popup-close-button"
+                            onClick={() => setShowPopup(false)}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
 
+        </div>
 
 
             {/* Tab Menu */}

@@ -61,22 +61,21 @@ function HomeScreen() {
                 <p className="hello-user">Hello, Danae</p>
             </div>
 
-            {/* Card Section */}
             <div className="card">
-                <div className="card-number">**** **** **** 0987</div>
-
-                <div className="card-bottom-rectangle">
-                    <p className="net-worth-label">My Net Worth:</p>
-                    <h1 className="net-worth-amount">$2,500.00</h1>
-                    <p className="date-text">10/25</p>
-
+                <p className="net-worth-label">My Net Worth:</p>
+                <h1 className="net-worth-amount">$2,800,000</h1>
+                <div className="percentage-text">
                     <div className="arrow-indicator">
                         <ArrowDownIcon />
                     </div>
-
-                    <p className="percentage-text">2.67%</p>
+                    <p>-2.67%</p>
                 </div>
             </div>
+
+            <div className='investmentsTitle'>
+                Investments
+            </div>
+
 
             {/* Six Rectangular Boxes Below the Card with Icons and Text */}
             <div className="rectangle left-rectangle top-row-1">

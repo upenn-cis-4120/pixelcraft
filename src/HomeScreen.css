@@ -1,13 +1,3 @@
-/* Main screen container */
-.home-screen {
-    width: 414px;
-    height: 896px;
-    background: #FAFAFA;
-    border-radius: 32px;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.3);
-    transform: scale(0.8);
-    transform-origin: center;
-}
 
 
 /* Icon with paths */
@@ -100,34 +90,26 @@
     color: #D1E4FD;
 }
 
-/* Tab menu */
 .tab-menu {
-    position: absolute;
-    width: 414px;
-    height: 64px;
+    position: fixed; /* Ensures it remains in the same position relative to the viewport */
+    bottom: 0; /* Anchors it to the bottom of the viewport */
+    left: 0; /* Ensures it spans from the left edge */
+    width: 100%; /* Ensures full width */
+    height: 64px; /* Menu height */
     border-radius: 0px 0px 30px 30px;
-    left: 0px;
-    top: 832px;
     background: #FFFFFF;
     box-shadow: 0px 2px 48px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0px; /* Adjust for spacing from left and right edges */
+    z-index: 100; /* Ensure it stays above other elements */
+    padding: 0 16px; /* Adjust for left and right spacing */
 }
+
+
 
 /* HomeScreen.css */
 
-/* Main screen container */
-.home-screen {
-    width: 414px;
-    height: 896px;
-    background: #FAFAFA;
-    border-radius: 32px;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.3);
-    transform: scale(0.8);
-    transform-origin: center;
-}
 
 /* Header container */
 .header {
@@ -255,16 +237,6 @@
     border-radius: 8px;
 }
 
-/* Main screen container */
-.home-screen {
-    width: 414px;
-    height: 896px;
-    background: #FAFAFA;
-    border-radius: 32px;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.3);
-    transform: scale(0.8);
-    transform-origin: center;
-}
 
 /* Main screen container */
 .home-screen {
@@ -275,176 +247,83 @@
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.3);
     transform: scale(0.8);
     transform-origin: center;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Make the screen take full height */
+
 }
 
-/* Card container with initial gradient background */
+.content-container {
+    flex: 1; /* Allow this section to grow and take available space */
+    overflow-y: auto; /* Enable scrolling for dynamic content */
+    padding-bottom: 16px; /* Add space to avoid content hitting the tab menu */
+}
+
+
+/* Card */
 .card {
     position: absolute;
-    width: 386px;
-    height: 239px;
+    width: 346px;
+    height: 161px;
     left: 14px;
-    top: 204px;
-    background: linear-gradient(135deg, #84E5D5 0%, #5C99D6 100%);
+    top: 193px;
+    background: linear-gradient(135deg, #84E5D5 0%, #5C99D6 100%);    
+    padding: 20px;
     border-radius: 8px;
+
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Arranges content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Ensures text is horizontally centered */
 }
 
-/* Card Number Text */
-.card-number {
-    position: absolute;
-    height: 26px;
-    left: 21.76%;
-    right: 21.5%;
-    top: calc(50% - 26px/2 - 21.5px);
-    font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    text-align: right;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-}
-
-
-/* Card Number Text */
-.card-number {
-    position: absolute;
-    height: 26px;
-    left: 21.76%;
-    right: 21.5%;
-    top: calc(50% - 26px/2 - 21.5px);
-    font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    text-align: right;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-}
-
-/* Bottom Rectangle */
-.card-bottom-rectangle {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 80px; /* Set the height as needed */
-    background: #6CB8D6;
-    border-radius: 0px 0px 8px 8px;
-}
-
-
-/* Card Number Text */
-.card-number {
-    position: absolute;
-    height: 26px;
-    left: 21.76%;
-    right: 21.5%;
-    top: calc(50% - 26px/2 - 21.5px);
-    font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    text-align: right;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-}
-
-/* Bottom Rectangle */
-.card-bottom-rectangle {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 48px;
-    background: #6CB8D6;
-    border-radius: 0px 0px 8px 8px;
-    display: flex;
-    flex-direction: column;
-    padding: 14px;
-    color: #FFFFFF;
-}
-
-/* My Net Worth Label */
+/* Net Worth Label */
 .net-worth-label {
-    position: absolute;
-    height: 14px;
-    left: 3.63%;
-    right: 71.5%;
-    top: calc(50% - 14px/2 - 22px);
     font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 1px;
-    color: #D1E4FD;
-    margin: 0;
-    width: 100px;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 10px; /* Adds spacing below this label */
 }
 
 /* Net Worth Amount */
 .net-worth-amount {
-    position: absolute;
-    height: 36px;
-    left: 3.63%;
-    right: 55.18%;
-    top: calc(50% - 36px/2 + 11px);
     font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    margin: 0;
+    font-weight: 700;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 10px; /* Adds spacing below this amount */
 }
 
-/* Date Text */
-.date-text {
-    position: absolute;
-    height: 17px;
-    left: 85.49%;
-    right: 3.63%;
-    top: calc(50% - 17px/2 + 0.5px);
+/* Percentage Change */
+.percentage-text {
     font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: right;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    margin: 0;
+    font-size: 16px;
+    color: #EC3535; /* Red color for negative percentage */
+    display: flex;
+    align-items: center; /* Vertically aligns text and arrow */
 }
 
 /* Arrow Indicator */
 .arrow-indicator {
+    margin-right: 5px; /* Adds spacing between the arrow and percentage text */
+    display: inline-block;
+}
+
+/* Polygon for Arrow */
+.polygon {
     position: absolute;
     width: 11.35px;
     height: 8.01px;
-    left: 180.36px;
-    top: 42.01px;
+    left: 188px;
+    top: 317.98px;
+    background: #EC3535;
+    transform: rotate(179.89deg);
 }
 
-/* Percentage Text */
-.percentage-text {
-    position: absolute;
-    height: 16px;
-    left: 51.55%;
-    right: 36.79%;
-    top: calc(50% - 16px/2 + 14px);
-    font-family: 'SF Pro Text', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    letter-spacing: 1px;
-    color: #ED2E2E;
-    margin: 0;
-}
 
 /* Rectangle styling */
 .rectangle {
@@ -452,6 +331,28 @@
     background: #FFFFFF;
     box-shadow: 0px 2px 48px rgba(0, 0, 0, 0.04);
     border-radius: 8px;
+}
+
+.investmentsTitle {
+
+    /* Welcome Back! */
+
+position: absolute;
+height: 26px;
+left: 34.06%;
+right: 32.13%;
+top: 420px;
+
+font-family: 'SF Pro Text';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 26px;
+letter-spacing: 1px;
+
+color: #3A697B;
+
+
 }
 
 /* Top Row 1 - Left Rectangle */
@@ -1325,7 +1226,7 @@
 /* Broker Integrations Section */
 .broker-integrations-section {
     position: absolute;
-    top: 485px;
+    top: 495px;
     left: 0;
     width: 100%;
     padding: 0 16px;
@@ -1345,8 +1246,9 @@
     margin: 0 auto;
     text-align: center;
     position: absolute;
-    top: 0px;
+    top: 500px;
     left: 118px;
+    margin-bottom: 50px;
 }
 
 /* Plus and Minus Circles */
@@ -1369,12 +1271,12 @@
 
 .plus-circle {
     left: 330px;
-    top: 0;
+    top: 495px;
 }
 
 .minus-circle {
     left: 362px;
-    top: 0;
+    top: 495px;
 }
 
 /* Broker Cards */
@@ -1389,7 +1291,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 .robinhood-card {
@@ -1529,3 +1431,130 @@
     border-bottom: none;
 }
 
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.popup {
+    background: #ffffff; /* White popup background */
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-title {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #3A697B;
+    text-align: center;
+}
+
+.popup-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.popup-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.popup-option:hover {
+    background-color: #f7f9fc; /* Subtle hover effect */
+}
+
+.popup-icon {
+    width: 32px; /* Smaller size */
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.popup-broker-name {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3A697B;
+}
+
+.popup-close-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #6CB8D6;
+    color: white;
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.popup-close-button:hover {
+    background-color: #58a0be;
+}
+
+/* Broker Integrations Section */
+.broker-integrations-section {
+    margin-top: 20px; /* Add margin to move the entire section down */
+}
+
+/* Individual Broker Card */
+.broker-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px; /* Adjust padding inside each card */
+    margin-top: 20px; /* Add space between cards */
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 48px rgba(0, 0, 0, 0.04);
+}
+
+/* Broker Icon */
+.broker-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+/* Broker Name and Value */
+.broker-name {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #3A697B;
+    flex-grow: 1;
+}
+
+.broker-value {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #3A697B;
+    text-align: right;
+}
