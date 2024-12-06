@@ -61,7 +61,7 @@ function CommoditiesScreen() {
             <div className="equity-rectangle">
                 {/* Logo */}
                 <div className="equity-logo">
-                    <LogoIcon color="#FFFFFF"/>
+                    <LogoIcon color="#FFFFFF" />
                 </div>
                 {/* Net Value Text */}
                 <div className="net-value-label">Net Value:</div>
@@ -71,14 +71,14 @@ function CommoditiesScreen() {
 
             <div className="equity-card">
                 <div className="equity-tab">
-                <div className="tab-selected">
-                    <div className="tab-rectangle"></div>
-                    <span className="tab-1d">1D</span>
-                </div>
-                <span className="tab-5d">5D</span>
-                <span className="tab-1m">1M</span>
-                <span className="tab-1y">1Y</span>
-                <span className="tab-all">ALL</span>
+                    <div className="tab-selected">
+                        <div className="tab-rectangle"></div>
+                        <span className="tab-1d">1D</span>
+                    </div>
+                    <span className="tab-5d">5D</span>
+                    <span className="tab-1m">1M</span>
+                    <span className="tab-1y">1Y</span>
+                    <span className="tab-all">ALL</span>
                 </div>
 
                 <div className="equity-text">
@@ -151,68 +151,47 @@ function CommoditiesScreen() {
 
 
             <div className="broker-integrations-section">
-            {/* Broker Integration Cards */}
-            {brokerIntegrations.map((broker, index) => (
-                <div className="broker-card" key={index}>
-                    <img src={require(`${broker.icon}`)} alt={`${broker.name} Logo`} className="broker-icon" />
-                    <span className="broker-name">{broker.name}</span>
-                    <span className="broker-value">{broker.value}</span>
-                </div>
-            ))}
-
-            {/* Popup for Adding Broker */}
-{showPopup && (
-    <div className="popup-overlay">
-        <div className="popup">
-            <h2 className="popup-title">Add Broker Integration</h2>
-            <div className="popup-options">
-                {availableBrokers.map((broker, index) => (
-                    <div
-                        key={index}
-                        className="popup-option"
-                        onClick={() => handleAddBroker(broker)}
-                    >
-                        <img
-                            src={require(`${broker.icon}`)}
-                            alt={`${broker.name} Logo`}
-                            className="popup-icon"
-                        />
-                        <span className="popup-broker-name">{broker.name}</span>
+                {/* Broker Integration Cards */}
+                {brokerIntegrations.map((broker, index) => (
+                    <div className="broker-card" key={index}>
+                        <img src={require(`${broker.icon}`)} alt={`${broker.name} Logo`} className="broker-icon" />
+                        <span className="broker-name">{broker.name}</span>
+                        <span className="broker-value">{broker.value}</span>
                     </div>
                 ))}
+
+                {/* Popup for Adding Broker */}
+                {showPopup && (
+                    <div className="popup-overlay">
+                        <div className="popup">
+                            <h2 className="popup-title">Add Broker Integration</h2>
+                            <div className="popup-options">
+                                {availableBrokers.map((broker, index) => (
+                                    <div
+                                        key={index}
+                                        className="popup-option"
+                                        onClick={() => handleAddBroker(broker)}
+                                    >
+                                        <img
+                                            src={require(`${broker.icon}`)}
+                                            alt={`${broker.name} Logo`}
+                                            className="popup-icon"
+                                        />
+                                        <span className="popup-broker-name">{broker.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                            <button
+                                className="popup-close-button"
+                                onClick={() => setShowPopup(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
-            <button
-                className="popup-close-button"
-                onClick={() => setShowPopup(false)}
-            >
-                Close
-            </button>
-        </div>
-    </div>
-)}
-</div>
 
-
-
-
-
-            {/* Tab Menu */}
-            <div className="tab-menu">
-                <Link to="/" className="home-icon">
-                    <HomeIcon
-                        style={{
-                            color: location.pathname === '/' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-                <Link to="/profile" className="profile-icon">
-                    <ProfileIcon
-                        style={{
-                            color: location.pathname === '/profile' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-            </div>
         </div>
     );
 }

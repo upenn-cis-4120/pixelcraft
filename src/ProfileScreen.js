@@ -2,20 +2,18 @@
 import React from 'react';
 import './HomeScreen.css'; // Reuse the CSS for consistency in styles
 import { ReactComponent as BackArrowIcon } from './icons/backArrowIcon.svg';
-import { ReactComponent as MenuThreeDotsIcon } from './icons/menuThreeDots.svg';
-import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
-import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DMImage from './danae.jpeg'; // Adjust path as necessary
 
 function ProfileScreen() {
-    const location = useLocation(); // Get current route
 
     return (
         <div className="home-screen">
             {/* Header Section */}
             <div className="header">
-                <BackArrowIcon className="back-arrow-icon" />
+                <Link to="/" className="back-arrow-icon">
+                    <BackArrowIcon />
+                </Link>
                 <div className="profile-text">Profile</div>
             </div>
 
@@ -35,24 +33,6 @@ function ProfileScreen() {
             <div className="account-settings-rectangle">Account Settings</div>
             <div className="privacy-policy-rectangle">Privacy Policy</div>
 
-
-            {/* Tab Menu */}
-            <div className="tab-menu">
-                <Link to="/" className="home-icon">
-                    <HomeIcon
-                        style={{
-                            color: location.pathname === '/' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-                <Link to="/profile" className="profile-icon">
-                    <ProfileIcon
-                        style={{
-                            color: location.pathname === '/profile' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-            </div>
         </div>
     );
 }

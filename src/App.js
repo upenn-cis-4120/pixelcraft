@@ -9,11 +9,16 @@ import AlternativeScreen from './AlternativeScreen';
 import CommoditiesScreen from './CommoditiesScreen';
 import RealEstateScreen from './RealEstateScreen';
 import AboutScreen from './AboutPage';
+import Layout from './Layout';
+import Robinhood from './Robinhood';
+import Fidelity from './Fidelity';
+import Charles from './Charles';
 
 
 function App() {
     return (
         <Router>
+            <Layout>
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
                 <Route path="/profile" element={<ProfileScreen />} />
@@ -24,7 +29,12 @@ function App() {
                 <Route path="/commodities" element={<CommoditiesScreen />} />
                 <Route path="/realestate" element={<RealEstateScreen />} />
                 <Route path="/aboutscreen" element={<AboutScreen />} />
+                <Route path="/robinhoodscreen" element={<Robinhood />} />
+                <Route path="/fidelityscreen" element={<Fidelity />} />
+                <Route path="/charlesscreen" element={<Charles />} />
             </Routes>
+            </Layout>
+
         </Router>
     );
 }

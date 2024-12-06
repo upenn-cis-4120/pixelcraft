@@ -1,0 +1,63 @@
+/* Layout.css */
+
+/* Wrapper for the entire layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    overflow-y: auto; /* Allows scrolling for content that overflows */
+    padding-bottom: 64px; /* Ensures space for the fixed tab-menu */
+}
+
+/* Tab menu */
+.tab-menu {
+    position: absolute;
+    bottom: 0; /* Anchors the tab-menu to the bottom of the screen */
+    left: 42px;
+    top: 750px;
+    width: 299px; /* Stretches across the entire width */
+    height: 64px; /* Specific height for the tab-menu */
+    background: #FFFFFF;
+    border-radius: 0px 0px 30px 30px; /* Optional rounded corners */
+    box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 100; /* Keeps it above other elements */
+}
+
+/* Icons inside the tab-menu */
+.tab-menu a {
+    flex: 1; /* Ensures equal spacing between icons */
+    text-align: center; /* Centers the icons */
+    color: #A5A4A9; /* Default color for inactive icons */
+    font-size: 20px; /* Adjust icon size */
+    text-decoration: none;
+}
+
+/* Active icons */
+.tab-menu a.active {
+    color: #6CB8D6; /* Active icon color */
+}
+
+/* Icon container */
+.tab-menu .home-icon,
+.tab-menu .profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Optional: Adjust font size for labels below icons (if needed) */
+.tab-menu span {
+    font-size: 12px;
+    margin-top: 4px;
+}

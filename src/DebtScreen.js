@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './HomeScreen.css';
 import { ReactComponent as BackArrowIcon } from './icons/backArrowIcon.svg';
-import { ReactComponent as MenuThreeDotsIcon } from './icons/menuThreeDots.svg';
-import { ReactComponent as HomeIcon } from './icons/homeIcon.svg';
 import { ReactComponent as GraphLine } from './icons/graphLine.svg';
-import { ReactComponent as ProfileIcon } from './icons/profileIcon.svg';
 import { ReactComponent as LogoIcon } from './icons/debtIcon.svg'; // Assuming logo icon is provided
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function DebtScreen() {
-    const location = useLocation(); // Get current route
+    const navigate = useNavigate(); // For programmatic navigation
+
+    const handleNavigate = (path) => {
+        if (path) {
+            navigate(path); // Navigate to the specified path
+        } else {
+            console.error("Path is not defined for this broker.");
+        }
+    };
+
 
     const screenKey = 'debtBrokerIntegrations';
 
@@ -20,9 +26,9 @@ function DebtScreen() {
 
     const [showPopup, setShowPopup] = useState(false); // Manage popup visibility
     const allBrokers = [
-        { name: 'Robinhood', value: '$750,000', icon: './icons/robinhood.png' },
-        { name: 'Charles Schwab', value: '$594,000', icon: './icons/charles.webp' },
-        { name: 'Fidelity', value: '$221', icon: './icons/fidelity.webp' },
+        { name: 'Robinhood', value: '$750,000', icon: './icons/robinhood.png', path: '/robinhoodscreen' },
+        { name: 'Charles Schwab', value: '$594,000', icon: './icons/charles.webp', path: '/charlesscreen' },
+        { name: 'Fidelity', value: '$221', icon: './icons/fidelity.webp', path: '/fidelityscreen' },
     ];
 
     // Dynamically filter available brokers based on already added brokers
@@ -50,6 +56,7 @@ function DebtScreen() {
 
     return (
         <div className="home-screen">
+
             {/* Header Section */}
             <div className="header">
                 <Link to="/" className="back-arrow-icon">
@@ -57,12 +64,12 @@ function DebtScreen() {
                 </Link>
                 <div className="profile-text">Debt</div>
             </div>
-            
+
             {/* Equity Rectangle */}
             <div className="equity-rectangle">
                 {/* Logo */}
                 <div className="equity-logo">
-                    <LogoIcon color="#FFFFFF"/>
+                    <LogoIcon color="#FFFFFF" />
                 </div>
                 {/* Net Value Text */}
                 <div className="net-value-label">Net Value:</div>
@@ -72,14 +79,14 @@ function DebtScreen() {
 
             <div className="equity-card">
                 <div className="equity-tab">
-                <div className="tab-selected">
-                    <div className="tab-rectangle"></div>
-                    <span className="tab-1d">1D</span>
-                </div>
-                <span className="tab-5d">5D</span>
-                <span className="tab-1m">1M</span>
-                <span className="tab-1y">1Y</span>
-                <span className="tab-all">ALL</span>
+                    <div className="tab-selected">
+                        <div className="tab-rectangle"></div>
+                        <span className="tab-1d">1D</span>
+                    </div>
+                    <span className="tab-5d">5D</span>
+                    <span className="tab-1m">1M</span>
+                    <span className="tab-1y">1Y</span>
+                    <span className="tab-all">ALL</span>
                 </div>
 
                 <div className="equity-text">
@@ -152,56 +159,60 @@ function DebtScreen() {
 
 
             <div className="broker-integrations-section">
-            {/* Broker Integration Cards */}
-            {brokerIntegrations.map((broker, index) => (
-                <div className="broker-card" key={index}>
-                    <img src={require(`${broker.icon}`)} alt={`${broker.name} Logo`} className="broker-icon" />
-                    <span className="broker-name">{broker.name}</span>
-                    <span className="broker-value">{broker.value}</span>
-                </div>
-            ))}
-
-            {/* Popup for Adding Broker */}
-        {showPopup && (
-            <div className="popup-overlay">
-                <div className="popup">
-                    <h2 className="popup-title">Add Broker Integration</h2>
-                    <div className="popup-options">
-                        {availableBrokers.map((broker, index) => (
-                            <div
-                                key={index}
-                                className="popup-option"
-                                onClick={() => handleAddBroker(broker)}
-                            >
-                                <img
-                                    src={require(`${broker.icon}`)}
-                                    alt={`${broker.name} Logo`}
-                                    className="popup-icon"
-                                />
-                                <span className="popup-broker-name">{broker.name}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <button
-                        className="popup-close-button"
-                        onClick={() => setShowPopup(false)}
+                {console.log('Broker Integrations State:', brokerIntegrations)}
+                {brokerIntegrations.map((broker, index) => (
+                    <div
+                        className="broker-card"
+                        key={index}
+                        onClick={() => handleNavigate(broker.path)}
                     >
-                        Close
-                    </button>
-                </div>
+                        <img src={require(`${broker.icon}`)} alt={`${broker.name} Logo`} className="broker-icon" />
+                        <span className="broker-name">{broker.name}</span>
+                        <span className="broker-value">{broker.value}</span>
+                    </div>
+                ))}
+
+
+
+                {/* Popup for Adding Broker */}
+                {showPopup && (
+                    <div className="popup-overlay">
+                        <div className="popup">
+                            <h2 className="popup-title">Add Broker Integration</h2>
+                            <div className="popup-options">
+                                {availableBrokers.map((broker, index) => (
+                                    <div
+                                        key={index}
+                                        className="popup-option"
+                                        onClick={() => handleAddBroker(broker)}
+                                    >
+                                        <img
+                                            src={require(`${broker.icon}`)}
+                                            alt={`${broker.name} Logo`}
+                                            className="popup-icon"
+                                        />
+                                        <span className="popup-broker-name">{broker.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                            <button
+                                className="popup-close-button"
+                                onClick={() => setShowPopup(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
-        )}
-        </div>
 
 
             <div className="portfolio-section" style={{
-                    marginTop: `${brokerIntegrations.length * 70}px`, // Dynamically adjust margin
-                }}>
+                marginTop: `${brokerIntegrations.length * 70}px`, // Dynamically adjust margin
+            }}>
                 <h2 className="portfolio-title">Portfolio</h2>
 
-                {/* Plus and Minus Circles */}
-                <div className="plus-circle-2">+</div>
-                <div className="minus-circle-2">-</div>
+                
 
                 {/* Portfolio Table */}
                 <table className="portfolio-table">
@@ -229,27 +240,8 @@ function DebtScreen() {
 
             </div>
 
-
-
-
-            {/* Tab Menu */}
-            <div className="tab-menu">
-                <Link to="/" className="home-icon">
-                    <HomeIcon
-                        style={{
-                            color: location.pathname === '/' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-                <Link to="/profile" className="profile-icon">
-                    <ProfileIcon
-                        style={{
-                            color: location.pathname === '/profile' ? '#6CB8D6' : '#A5A4A9',
-                        }}
-                    />
-                </Link>
-            </div>
         </div>
+
     );
 }
 
