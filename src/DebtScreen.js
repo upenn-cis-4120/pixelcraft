@@ -56,7 +56,6 @@ function DebtScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Debt</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
             
             {/* Equity Rectangle */}

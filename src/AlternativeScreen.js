@@ -56,7 +56,6 @@ function AlternativeScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Alternative Investments</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Equity Rectangle */}

@@ -92,9 +92,9 @@
 
 .tab-menu {
     position: fixed; /* Ensures it remains in the same position relative to the viewport */
-    bottom: 0; /* Anchors it to the bottom of the viewport */
     left: 0; /* Ensures it spans from the left edge */
-    width: 100%; /* Ensures full width */
+    bottom: 0;
+    width: 386px; /* Ensures full width */
     height: 64px; /* Menu height */
     border-radius: 0px 0px 30px 30px;
     background: #FFFFFF;
@@ -116,7 +116,7 @@
     position: absolute;
     width: 386px;
     height: 48px;
-    left: 14px;
+    left: 0px;
     top: 10px;
     display: flex;
     align-items: center;
@@ -469,16 +469,7 @@ color: #3A697B;
     margin-bottom: -5px;
 }
 
-/* .tab-menu {
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    padding: 10px 40px;
-    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
-} */
+
 
 .home-icon,
 .profile-icon {
@@ -519,7 +510,7 @@ color: #3A697B;
     position: absolute;
     height: 19px;
     top: 50px;
-    left: 50%; /* Start positioning from the center of the container */
+    left: 190px; /* Start positioning from the center of the container */
     transform: translateX(-50%); /* Shift the text left by 50% of its width to center it */
     font-family: 'SF Pro Text', sans-serif;
     font-style: normal;
@@ -598,6 +589,9 @@ color: #3A697B;
     line-height: 54px;
     color: #3A697B;
     text-align: center;
+    text-decoration: none;
+    border: 2px solid #0C698F; /* Combine border-width, border-color, and border-style */
+
 }
 
 /* Specific button positioning */
@@ -1557,4 +1551,87 @@ color: #3A697B;
     font-size: 16px;
     color: #3A697B;
     text-align: right;
+}
+
+/* About Screen Styles */
+.about-screen {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.profile-text {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 16px;
+}
+
+.about-content {
+    padding: 16px;
+    margin-top: 10px;
+}
+
+.about-title {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.about-section {
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+.about-section h2 {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.about-section p {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    margin-bottom: 16px;
+}
+
+.about-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.about-section li {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* About Section Image */
+.about-section-image {
+    display: block; /* Ensures images are block elements */
+    max-width: 80%; /* Ensures images do not exceed 80% of the section width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center the image and add spacing */
+    border-radius: 10px; /* Optional: adds rounded corners to images */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+    border: 1px solid #e0e0e0; /* Optional: adds a border to the images */
 }

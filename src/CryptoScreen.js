@@ -55,7 +55,6 @@ function CryptoScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Crypto</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Equity Rectangle */}

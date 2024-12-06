@@ -55,7 +55,6 @@ function CommoditiesScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Commodities</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Equity Rectangle */}

@@ -1,0 +1,71 @@
+/* About Screen Styles */
+.about-screen {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.profile-text {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 16px;
+}
+
+.about-content {
+    padding: 16px;
+    margin-top: 10px;
+}
+
+.about-title {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.about-section {
+    margin-bottom: 24px;
+    margin-top: 50px;
+}
+
+.about-section h2 {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.about-section p {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    margin-bottom: 16px;
+}
+
+.about-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.about-section li {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}

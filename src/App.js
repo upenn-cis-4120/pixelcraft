@@ -8,6 +8,8 @@ import CryptoScreen from './CryptoScreen';
 import AlternativeScreen from './AlternativeScreen';
 import CommoditiesScreen from './CommoditiesScreen';
 import RealEstateScreen from './RealEstateScreen';
+import AboutScreen from './AboutPage';
+
 
 function App() {
     return (
@@ -21,6 +23,7 @@ function App() {
                 <Route path="/alternative" element={<AlternativeScreen />} />
                 <Route path="/commodities" element={<CommoditiesScreen />} />
                 <Route path="/realestate" element={<RealEstateScreen />} />
+                <Route path="/aboutscreen" element={<AboutScreen />} />
             </Routes>
         </Router>
     );

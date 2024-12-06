@@ -55,7 +55,6 @@ function RealEstateScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Real Estate</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Equity Rectangle */}

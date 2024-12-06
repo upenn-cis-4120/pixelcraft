@@ -55,7 +55,6 @@ function EquityScreen() {
                     <BackArrowIcon />
                 </Link>
                 <div className="profile-text">Equity</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Equity Rectangle */}

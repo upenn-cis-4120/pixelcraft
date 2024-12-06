@@ -17,7 +17,6 @@ function ProfileScreen() {
             <div className="header">
                 <BackArrowIcon className="back-arrow-icon" />
                 <div className="profile-text">Profile</div>
-                <MenuThreeDotsIcon className="menu-three-dots-icon" />
             </div>
 
             {/* Profile Image Section */}
@@ -30,7 +29,9 @@ function ProfileScreen() {
             <div className="danae-metaxa">Danae Metaxa</div>
 
             {/* Button Rectangles */}
-            <div className="about-rectangle">About</div>
+            <Link to="/aboutscreen" className="about-rectangle">
+                About
+            </Link>
             <div className="account-settings-rectangle">Account Settings</div>
             <div className="privacy-policy-rectangle">Privacy Policy</div>
 
